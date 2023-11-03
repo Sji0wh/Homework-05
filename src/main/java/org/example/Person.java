@@ -8,16 +8,24 @@ public class Person {
         this.personAge = personAge;
         this.personName = personName;
     }
+
     public void celebrateBirthday(){
+
         personAge++;
     }
+
     public void changeName (String newName){
+
         personName = newName;
     }
+
     public String getName (){
+
         return personName;
     }
+
     public int getAge (){
+
         return personAge;
     }
 }
