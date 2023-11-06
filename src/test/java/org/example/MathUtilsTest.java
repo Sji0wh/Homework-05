@@ -1,10 +1,45 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MathUtilsTest {
+
+    MathUtils resultDivision;
+    MathUtils resultMultiplying;
+    MathUtils resultSquaring;
+
+    @BeforeEach
+    void setup(){
+        resultDivision = new MathUtils(4.5f, 2.6f);
+        resultMultiplying = new MathUtils(4.7f, 5.8f);
+    }
+
+    //Parametrized test for integer squaring
+    @ParameterizedTest
+    @ValueSource(ints = {2, 3, 5, 9})
+    public void testSquaring(int a) {
+        resultSquaring = new MathUtils(a, 0);
+        int squareResult = resultSquaring.squaring();
+        assertEquals(a * a, squareResult);
+    }
+
+    //Assert that float numbers division passed correctly
+    @Test
+    public void testFloatingDivision(){
+        float divisionResult = resultDivision.divide();
+        assertEquals(1.73, divisionResult, 0.001f);
+    }
+
+    //Assert that float numbers multiplying passed correctly
+    @Test
+    public void testMultiplying() {
+        float multiplyingResult = resultMultiplying.multiplying();
+        assertEquals(27.2f, multiplyingResult, 0.1f);
+    }
 
     //Assert that addition method is working properly
     @Test
