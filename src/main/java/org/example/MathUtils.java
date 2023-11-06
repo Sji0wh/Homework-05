@@ -28,12 +28,12 @@ public class MathUtils {
 
     //Floating point division method
     public float divide() {
-        return (float) c/d;
+        return c/d;
     }
 
     //Method of multiplying floating point numbers
     public float multiplying() {
-        return (float) c*d;
+        return c*d;
     }
 
     //Method for squaring a number
