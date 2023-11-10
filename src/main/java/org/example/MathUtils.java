@@ -16,8 +16,12 @@ public class MathUtils {
         this.d = d;
     }
 
+    public MathUtils() {
+
+    }
+
     //Addition method for integers "a" and "b"
-    public int add() {
+    public int add(int a, int b) {
         return a + b;
     }
 
@@ -32,7 +36,7 @@ public class MathUtils {
     }
 
     //Method of multiplying floating point numbers
-    public float multiplying() {
+    public float multiplying(float c, float d) {
         return c*d;
     }
 

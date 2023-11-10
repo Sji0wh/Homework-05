@@ -2,6 +2,8 @@ package org.example;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +17,25 @@ public class MathUtilsTest {
     @BeforeEach
     void setup(){
         resultDivision = new MathUtils(4.5f, 2.6f);
-        resultMultiplying = new MathUtils(4.7f, 5.8f);
+        resultMultiplying = new MathUtils();
+    }
+
+    //Parametrized addition test with CsvSource annotation
+    @ParameterizedTest
+    @CsvSource({"3, 3, 6", "7, 2, 9", "5, -3, 2"})
+    public void testAddWithCsvSource(int a, int b, int expected) {
+        MathUtils csvSumResult = new MathUtils();
+        int additionResultCsv = csvSumResult.add(a, b);
+        assertEquals(expected, additionResultCsv);
+    }
+
+    //Parametrized multiplying test with  CsvFileSource annotation
+    @ParameterizedTest
+    @CsvFileSource (resources = "/MathUtilTestData.csv")
+    public void testMultiplyCsvFileSource (int a, int b, int expected) {
+        MathUtils csvMultiplyResult = new MathUtils();
+        int multiplyResult= (int) csvMultiplyResult.multiplying(a, b);
+        assertEquals(expected, multiplyResult);
     }
 
     //Parametrized test for integer squaring
@@ -37,15 +57,15 @@ public class MathUtilsTest {
     //Assert that float numbers multiplying passed correctly
     @Test
     public void testMultiplying() {
-        float multiplyingResult = resultMultiplying.multiplying();
+        float multiplyingResult = resultMultiplying.multiplying(4.7f, 5.8f);
         assertEquals(27.2f, multiplyingResult, 0.1f);
     }
 
     //Assert that addition method is working properly
     @Test
     public void testAddSuccessful () {
-        MathUtils additionSum = new MathUtils (5,6);
-        int sumResult = additionSum.add();
+        MathUtils additionSum = new MathUtils ();
+        int sumResult = additionSum.add(5, 6);
         assertEquals(11,sumResult);
     }
 
@@ -60,32 +80,32 @@ public class MathUtilsTest {
     //Adding two positive integers
     @Test
     public void testAddTwoPositive () {
-        MathUtils additionSum = new MathUtils (5,5);
-        int sumResult = additionSum.add();
+        MathUtils additionSum = new MathUtils ();
+        int sumResult = additionSum.add(5,5);
         assertEquals(10,sumResult);
     }
 
     //Adding zero to positive integer
     @Test
     public void testAddZero () {
-        MathUtils additionSum = new MathUtils (5,0);
-        int sumResult = additionSum.add();
+        MathUtils additionSum = new MathUtils ();
+        int sumResult = additionSum.add(5,0);
         assertEquals(5,sumResult);
     }
 
     //Adding positive integer to negative
     @Test
     public void testAddToNegative () {
-        MathUtils additionSum = new MathUtils (-6,5);
-        int sumResult = additionSum.add();
+        MathUtils additionSum = new MathUtils ();
+        int sumResult = additionSum.add(-6, 5);
         assertEquals(-1,sumResult);
     }
 
     //Overflow test, assert that correct result appeared
     @Test
     public void testAddOverflow () {
-        MathUtils additionSum = new MathUtils (2147483647,1);
-        int sumResult = additionSum.add();
+        MathUtils additionSum = new MathUtils ();
+        int sumResult = additionSum.add(2147483647, 1);
         assertEquals(-2147483648,sumResult);
     }
 
