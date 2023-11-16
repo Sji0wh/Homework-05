@@ -1,23 +1,28 @@
-Test Results
+# Test Results
+
 ## MathUtils Class
 
-1. testAddWithCsvSource - Parametrized addition test with CsvSource annotation - Status: Passed
-2. testMultiplyCsvFileSource - Parametrized multiplying test with CsvFileSource annotation - Status: Passed
-3. testSquaring - Parametrized test for integer squaring - Status: Passed
-4. testFloatingDivision - Assert that float numbers division passed correctly - Status: Passed
-5. testMultiplying - Assert that float numbers multiplying passed correctly - Status: Passed
-6. testAddSuccessful - Assert that addition method is working properly - Status: Passed
-7. testBiggerSuccessful - Assert that compare method is working properly - Status: Passed
-8. testAddTwoPositive - Adding two positive integers - Status: Passed
-9. testAddZero - Adding zero to positive integer - Status: Passed
-10. testAddToNegative - Adding positive integer to negative - Status: Passed
-11. testAddOverflow - Overflow test, assert that correct result appeared - Status: Passed
-12. testBiggerFirstLarger - Assert that first integer is larger - Status: Passed
-13. testBiggerSecondLarger - Assert that first integer is lesser - Status: Passed
-14. testBiggerEqual - Assert that result will be false if both integers are equal - Status: Passed
+| Test Case                 | Description                                           | Status  |
+|---------------------------|-------------------------------------------------------|---------|
+| testAddWithCsvSource      | Parametrized addition test with CsvSource annotation | Passed  |
+| testMultiplyCsvFileSource  | Parametrized multiplying test with CsvFileSource      | Passed  |
+| testSquaring              | Parametrized test for integer squaring               | Passed  |
+| testFloatingDivision      | Assert that float numbers division passed correctly   | Passed  |
+| testMultiplying           | Assert that float numbers multiplying passed correctly| Passed  |
+| testAddSuccessful         | Assert that addition method is working properly      | Passed  |
+| testBiggerSuccessful      | Assert that compare method is working properly       | Passed  |
+| testAddTwoPositive        | Adding two positive integers                         | Passed  |
+| testAddZero               | Adding zero to a positive integer                     | Passed  |
+| testAddToNegative         | Adding a positive integer to negative                 | Passed  |
+| testAddOverflow           | Overflow test, assert that the correct result appeared | Passed  |
+| testBiggerFirstLarger     | Assert that the first integer is larger               | Passed  |
+| testBiggerSecondLarger    | Assert that the first integer is lesser               | Passed  |
+| testBiggerEqual           | Assert that the result will be false if both integers are equal | Passed  |
 
 ## Solver Class
 
-1. lesserThanZero - Discriminant is lesser than zero - Status: Passed
-2. equalsZero - Discriminant is equals zero - Status: Passed
-3. largerThanZero - Discriminant is larger than zero - Status: Passed
+| Test Case         | Description                           | Status  |
+|-------------------|---------------------------------------|---------|
+| lesserThanZero    | Discriminant is lesser than zero       | Passed  |
+| equalsZero        | Discriminant is equal to zero          | Passed  |
+| largerThanZero    | Discriminant is larger than zero       | Passed  |
