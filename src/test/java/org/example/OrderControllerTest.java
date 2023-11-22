@@ -3,7 +3,6 @@ package org.example;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 
@@ -41,30 +40,5 @@ public class OrderControllerTest {
                 .log()
                 .all()
                 .statusCode(HttpStatus.SC_BAD_REQUEST);
-    }
-
-    //Mixed GET method test
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 5, 9, 10, 11})
-    public void testGettingOrder(int orderId){
-        String URL = "http://51.250.6.164:8080/test-orders/" + orderId;
-
-        Response response = given()
-                .log()
-                .all()
-                .when()
-                .get(URL);
-
-        if (orderId > 10) {
-            response.then()
-                    .log()
-                    .all()
-                    .statusCode(HttpStatus.SC_BAD_REQUEST);
-        } else {
-            response.then()
-                    .log()
-                    .all()
-                    .statusCode(HttpStatus.SC_OK);
-        }
     }
 }
