@@ -10,6 +10,17 @@ public class TestUserDto {
     private String phone;
     private int userStatus;
 
+    private int code;
+    private String type;
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     public TestUserDto(String username, String firstName, String lastName, String email, String password, String phone) {
         this.id = 0;
         this.username = username;
@@ -49,4 +60,6 @@ public class TestUserDto {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }
+
