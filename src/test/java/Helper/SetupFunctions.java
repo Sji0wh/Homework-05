@@ -24,7 +24,7 @@ public class SetupFunctions {
 
     public SetupFunctions() {
 
-        try (InputStream input = new FileInputStream("settings.properties")){
+        try (InputStream input = new FileInputStream("settings.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 
@@ -33,9 +33,8 @@ public class SetupFunctions {
             username = properties.getProperty("username");
             password = properties.getProperty("password");
 
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Error");
         }
-
     }
 }

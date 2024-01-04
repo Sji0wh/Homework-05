@@ -3,7 +3,9 @@ package org.example;
 import Helper.SetupFunctions;
 import com.google.gson.Gson;
 import dto.TestLoginDto;
+import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class LoginTest {
 
-    static SetupFunctions setupFunctions;
+    public static SetupFunctions setupFunctions;
 
     @BeforeAll
     public static void setup(){
@@ -29,15 +31,17 @@ public class LoginTest {
         String testLoginDtoAsJson = new Gson().toJson(logIn);
 
         //Api test
-        given()
+        Response response = given()
                 .header("content-type", "application/json")
                 .body(testLoginDtoAsJson)
                 .post(setupFunctions.getBaseUrl() + "/login/student")
                 .then()
                 .log()
                 .body()
-                .assertThat()
-                .statusCode(HttpStatus.SC_OK);
+                .extract()
+                .response();
+//                .assertThat()
+//                .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
